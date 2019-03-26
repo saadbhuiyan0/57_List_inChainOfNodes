@@ -54,9 +54,10 @@ public class List_inChainOfNodes{
         return true;
     }
 
-    public boolean set( int index, Object val) {
+    public Object set( int index, Object val) {
+        Object replacedVal = get( index);
         getNode( index).setCargoReference( val);
-        return true;
+        return replacedVal;
     }
 
     public Object get( int index) {
