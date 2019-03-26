@@ -78,10 +78,7 @@ public class List_inChainOfNodes{
             return addAsHead( val);
         }
         Node newNode = new Node( val);
-        Node previousNode = headReference;
-        for ( int iterate = 1; iterate < index; iterate++) {
-            previousNode = previousNode.getReferenceToNextNode();
-        }
+        Node previousNode = getNode( index);
         newNode.setReferenceToNextNode( previousNode.getReferenceToNextNode());
         previousNode.setReferenceToNextNode( newNode);
         return true;
@@ -92,10 +89,7 @@ public class List_inChainOfNodes{
             headReference = headReference.getReferenceToNextNode();
         }
         else {
-            Node previousNode = headReference;
-            for ( int iterate = 1; iterate < index; iterate++) { // cycle through nodes
-                previousNode = previousNode.getReferenceToNextNode();
-            }
+            Node previousNode = getNode( index);
             previousNode.setReferenceToNextNode( previousNode.getReferenceToNextNode().getReferenceToNextNode());
         }
         return true;
