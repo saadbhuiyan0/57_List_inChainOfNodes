@@ -54,52 +54,50 @@ public class List_inChainOfNodes{
         return true;
     }
 
-    public boolean set( int index, Object cargo) {
+    public boolean set( int index, Object val) {
+        getNode( index).setCargoReference( val);
+        return true;
+    }
+
+    public Object get( int index) {
+        return getNode( index).getCargoReference();
+    }
+
+    public Node getNode( int index) {
         Node targetNode = headReference;
         int iterate = index;
         while ( iterate > 0) {
             targetNode = targetNode.getReferenceToNextNode();
             iterate--;
         }
-        targetNode = new Node( cargo, targetNode.getReferenceToNextNode());
-        return true;
+        return targetNode;
     }
 
-    public Object get( int index) {
-        Node cargoNode = headReference;
-        int iterate = index;
-        while ( iterate > 0) {
-            cargoNode = cargoNode.getReferenceToNextNode();
-            iterate--;
+    public boolean add( int index, Object val) {
+        if ( index == 0) {
+            return addAsHead( val);
         }
-        return cargoNode.getCargoReference();
-    }
-
-    public boolean add( int index, Object cargo) {
-        Node newNode = new Node( cargo);
-        Node nextNode = headReference;
+        Node newNode = new Node( val);
         Node previousNode = headReference;
-        int iterate = index;
-        while ( iterate > 0) {
-            previousNode = nextNode;
-            nextNode = nextNode.getReferenceToNextNode();
-            iterate--;
+        for ( int iterate = 1; iterate < index; iterate++) {
+            previousNode = previousNode.getReferenceToNextNode();
         }
-        newNode.setReferenceToNextNode( nextNode);
+        newNode.setReferenceToNextNode( previousNode.getReferenceToNextNode());
         previousNode.setReferenceToNextNode( newNode);
         return true;
     }
 
     public boolean remove( int index) {
-        Node nextNode = headReference;
-        Node previousNode = headReference;
-        int iterate = index;
-        while ( iterate > 0) {
-            previousNode = nextNode;
-            nextNode = nextNode.getReferenceToNextNode();
-            iterate--;
+        if (index == 0) {
+            headReference = headReference.getReferenceToNextNode();
         }
-        previousNode.setReferenceToNextNode( nextNode);
+        else {
+            Node previousNode = headReference;
+            for ( int iterate = 1; iterate < index; iterate++) { // cycle through nodes
+                previousNode = previousNode.getReferenceToNextNode();
+            }
+            previousNode.setReferenceToNextNode( previousNode.getReferenceToNextNode().getReferenceToNextNode());
+        }
         return true;
     }
 

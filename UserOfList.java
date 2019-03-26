@@ -24,10 +24,20 @@ public class UserOfList {
         System.out.println( "populated list: " + list
                           + System.lineSeparator());
         
-        System.out.println( list.set( 0, "s"));
-        System.out.println( "set S - s: " + list
-                          + System.lineSeparator());
+        System.out.println( "set S to s: " + list.set( 0, "s")
+                            + System.lineSeparator()
+                            + list
+                            + System.lineSeparator());
 
+        System.out.println( "add end to index 4: " + list.add( 4, "end")
+                            + System.lineSeparator()
+                            + "get index 4: " + list.get( 4)
+                            + System.lineSeparator()
+                            + list
+                            + System.lineSeperator());
 
+        System.out.println( "remove index 4: " + list.remove( 4)
+                            + System.lineSeparator() 
+                            + list);
     }
 }
