@@ -66,10 +66,8 @@ public class List_inChainOfNodes{
 
     public Node getNode( int index) {
         Node targetNode = headReference;
-        int iterate = index;
-        while ( iterate > 0) {
+        for ( int i = index ; i > 0 ; i--) {
             targetNode = targetNode.getReferenceToNextNode();
-            iterate--;
         }
         return targetNode;
     }
@@ -85,15 +83,18 @@ public class List_inChainOfNodes{
         return true;
     }
 
-    public boolean remove( int index) {
+    public Object remove( int index) {
+        Object replacedVal = null;
         if (index == 0) {
+            replacedVal = headReference.getCargoReference();
             headReference = headReference.getReferenceToNextNode();
         }
         else {
-            Node previousNode = getNode( index);
+            Node previousNode = getNode( index - 1);
+            replacedVal = get( index);
             previousNode.setReferenceToNextNode( previousNode.getReferenceToNextNode().getReferenceToNextNode());
         }
-        return true;
+        return replacedVal;
     }
 
 

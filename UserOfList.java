@@ -28,15 +28,33 @@ public class UserOfList {
                             + System.lineSeparator()
                             + list
                             + System.lineSeparator());
+        System.out.println( "set y to d: " + list.set( 3, "d")
+                            + System.lineSeparator()
+                            + list
+                            + System.lineSeparator());
 
-        System.out.println( "add end to index 4: " + list.add( 4, "end")
+        System.out.println( "add ! to index 0: " + list.add( 0, "!")
+                            + System.lineSeparator()
+                            + "add y to index 4: " + list.add( 4, "y")
+                            + System.lineSeparator()
+                            + "get index 0: " + list.get( 0)
+                            + System.lineSeparator()
+                            + "get index 1: " + list.get( 1)
+                            + System.lineSeparator()
+                            + "get index 2: " + list.get( 2)
+                            + System.lineSeparator()
+                            + "get index 3: " + list.get( 3)
                             + System.lineSeparator()
                             + "get index 4: " + list.get( 4)
                             + System.lineSeparator()
+                            + "get index 5: " + list.get( 5)
+                            + System.lineSeparator()
                             + list
-                            + System.lineSeperator());
+                            + System.lineSeparator());
 
-        System.out.println( "remove index 4: " + list.remove( 4)
+        System.out.println( "remove index 0: " + list.remove( 0)
+                            + System.lineSeparator()
+                            + "remove index 3: " + list.remove( 3)
                             + System.lineSeparator() 
                             + list);
     }
